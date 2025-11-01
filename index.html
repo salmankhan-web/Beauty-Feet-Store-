@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta viewport for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty & Feet Store -</title>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Overlay for closing mobile menu on click outside -->
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+    <!-- Fixed Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <!-- Store Logo Link -->
+            <a href="#home" class="logo">Beauty & Feet Store</a>
+            <!-- Mobile Cart Icon -->
+            <a href="#" id="mobile-cart" class="mobile-cart">🛒 <span id="mobile-cart-count">0</span></a>
+            <!-- Hamburger Menu Button for Mobile -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Desktop Navigation Menu -->
+            <ul id="desktopMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cosmetics">Cosmetics</a></li>
+                <li><a href="#chapals">Chappals</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" id="cart-icon">🛒 <span id="cart-count">0</span></a></li>
+            </ul>
+            <!-- Mobile Dropdown Navigation Menu -->
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="#cosmetics" onclick="toggleMenu()">Cosmetics</a></li>
+                    <li><a href="#chapals" onclick="toggleMenu()">Chapals</a></li>
+                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero/Home Section with Background Image -->
+    <section id="home">
+        <div>
+            <h1>Welcome to Beauty & Feet Store</h1>
+            <p>Discover amazing Cosmetics and Stylish Chappals!</p>
+            <!-- Featured Image Container -->
+            <div class="image-container">
+                <img src="img.jpg" alt="Beauty & Feet Store Featured Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Selection Section -->
+    <section id="categories" class="container">
+        <!-- Section Heading -->
+        <h2>Shop by Category</h2>
+        <!-- Grid of Category Cards -->
+        <div class="categories">
+            <!-- Cosmetics Category Card -->
+            <div class="category-card cosmetics" onclick="document.querySelector('#cosmetics').scrollIntoView({behavior: 'smooth'})">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLssbKG7BQFB66DaokthbyEhhTNqJRbdFfG4dwhl6aGw&s=10" alt="Cosmetics">
+                <h3>Cosmetics</h3>
+            </div>
+            <!-- Chapals Category Card -->
+            <div class="category-card chapals" onclick="document.querySelector('#chapals').scrollIntoView({behavior: 'smooth'})">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjxRF6vkYrC8VwopcUnSBmGz8rszKD-LIDsQzr21JszA&s=10" alt="Chapals">
+                <h3>Chappals</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cosmetics Products Section -->
+    <section id="cosmetics">
+        <div class="container">
+            <!-- Section Heading -->
+            <h2>Cosmetics </h2>
+            <!-- Grid of Cosmetics Product Cards -->
+            <div class="items-grid">
+                <!-- Product Card 1 -->
+                <div class="item-card" data-id="cos1" data-name="Lipstick Red" data-price="500">
+                    <img src="https://images.unsplash.com/photo-1670981321083-9b7ab0843f60?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1365" alt="Lipstick">
+                    <div class="item-info">
+                        <h4>Lipstick Red</h4>
+                        <p class="price">Rs. 500</p>
+                    </div>
+                    <button onclick="addToCart('cos1', 'Lipstick Red', 500)">Add to Cart</button>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="item-card" data-id="cos2" data-name="Foundation" data-price="800">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk8OzHGrZ3UG-hWe_4rS9OVmB3tLF6o8fzN5WC4cmm0Q&s=10" alt="Foundation">
+                    <div class="item-info">
+                        <h4>Foundation</h4>
+                        <p class="price">Rs. 800</p>
+                    </div>
+                    <button onclick="addToCart('cos2', 'Foundation', 800)">Add to Cart</button>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="item-card" data-id="cos3" data-name="Mascara" data-price="600">
+                    <img src="https://images.unsplash.com/photo-1619406266880-7e130b6c65c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1285" alt="Mascara">
+                    <div class="item-info">
+                        <h4>Mascara</h4>
+                        <p class="price">Rs. 600</p>
+                    </div>
+                    <button onclick="addToCart('cos3', 'Mascara', 600)">Add to Cart</button>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="item-card" data-id="cos4" data-name="Blush" data-price="400">
+                    <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1106" alt="Blush">
+                    <div class="item-info">
+                        <h4>Blush</h4>
+                        <p class="price">Rs. 400</p>
+                    </div>
+                    <button onclick="addToCart('cos4', 'Blush', 400)">Add to Cart</button>
+                </div>
+                <!-- Product Card 5 -->
+                <div class="item-card" data-id="cos5" data-name="Eyeshadow" data-price="700">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1335" alt="Eyeshadow">
+                    <div class="item-info">
+                        <h4>Eyeshadow</h4>
+                        <p class="price">Rs. 700</p>
+                    </div>
+                    <button onclick="addToCart('cos5', 'Eyeshadow', 700)">Add to Cart</button>
+                </div>
+                <!-- Product Card 6 -->
+                <div class="item-card" data-id="cos6" data-name="Nail Polish" data-price="300">
+                    <img src="https://images.unsplash.com/photo-1599948128020-9a44505b0d1b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fE5haWwlMjBQb2xpc2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1200" alt="Nail Polish">
+                    <div class="item-info">
+                        <h4>Nail Polish</h4>
+                        <p class="price">Rs. 300</p>
+                    </div>
+                    <button onclick="addToCart('cos6', 'Nail Polish', 300)">Add to Cart</button>
+                </div>
+                <!-- Product Card 7 -->
+                <div class="item-card" data-id="cos7" data-name="Perfume" data-price="1500">
+                    <img src="https://images.unsplash.com/photo-1557170334-a9632e77c6e4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fFBlcmZ1bWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1200" alt="Perfume">
+                    <div class="item-info">
+                        <h4>Perfume</h4>
+                        <p class="price">Rs. 1500</p>
+                    </div>
+                    <button onclick="addToCart('cos7', 'Perfume', 1500)">Add to Cart</button>
+                </div>
+                <!-- Product Card 8 -->
+                <div class="item-card" data-id="cos8" data-name="Moisturizer" data-price="900">
+                    <img src="https://images.unsplash.com/photo-1556228841-fb0779df1db1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1287" alt="Moisturizer">
+                    <div class="item-info">
+                        <h4>Moisturizer</h4>
+                        <p class="price">Rs. 900</p>
+                    </div>
+                    <button onclick="addToCart('cos8', 'Moisturizer', 900)">Add to Cart</button>
+                </div>
+                <!-- Product Card 9 -->
+                <div class="item-card" data-id="cos9" data-name="Serum" data-price="1200">
+                    <img src="https://images.unsplash.com/photo-1679394270822-fb37412bb6ee?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFNlcnVtfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1200" alt="Serum">
+                    <div class="item-info">
+                        <h4>Serum</h4>
+                        <p class="price">Rs. 1200</p>
+                    </div>
+                    <button onclick="addToCart('cos9', 'Serum', 1200)">Add to Cart</button>
+                </div>
+                <!-- Product Card 10 -->
+                <div class="item-card" data-id="cos10" data-name="Highlighter" data-price="550">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJLcuNa4IYYXD4ad4MdjfelOKccEfZs41pualXWFujoQ&s=10" alt="Highlighter">
+                    <div class="item-info">
+                        <h4>Highlighter</h4>
+                        <p class="price">Rs. 550</p>
+                    </div>
+                    <button onclick="addToCart('cos10', 'Highlighter', 550)">Add to Cart</button>
+                </div>
+                <!-- Product Card 11 -->
+                <div class="item-card" data-id="cos11" data-name="Concealer" data-price="650">
+                    <img src="https://images.unsplash.com/photo-1656523201068-8ed449fb1434?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q29uY2VhbGVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1200" alt="Concealer">
+                    <div class="item-info">
+                        <h4>Concealer</h4>
+                        <p class="price">Rs. 650</p>
+                    </div>
+                    <button onclick="addToCart('cos11', 'Concealer', 650)">Add to Cart</button>
+                </div>
+                <!-- Product Card 12 -->
+                <div class="item-card" data-id="cos12" data-name="Eyeliner" data-price="450">
+                    <img src="https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RXllbGluZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1200" alt="Eyeliner">
+                    <div class="item-info">
+                        <h4>Eyeliner</h4>
+                        <p class="price">Rs. 450</p>
+                    </div>
+                    <button onclick="addToCart('cos12', 'Eyeliner', 450)">Add to Cart</button>
+                </div>
+                <!-- Product Card 13 -->
+                <div class="item-card" data-id="cos13" data-name="Lip Gloss" data-price="350">
+                    <img src="https://images.unsplash.com/photo-1631214499887-88e7084d7f64?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fExpcCUyMEdsb3NzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1200" alt="Lip Gloss">
+                    <div class="item-info">
+                        <h4>Lip Gloss</h4>
+                        <p class="price">Rs. 350</p>
+                    </div>
+                    <button onclick="addToCart('cos13', 'Lip Gloss', 350)">Add to Cart</button>
+                </div>
+                <!-- Product Card 14 -->
+                <div class="item-card" data-id="cos14" data-name="Face Powder" data-price="750">
+                    <img src="https://images.unsplash.com/photo-1737015601064-9fa5d860ccb8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fEZhY2UlMjBQb3dkZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1200" alt="Face Powder">
+                    <div class="item-info">
+                        
+                        <h4>Face Powder</h4>
+                        <p class="price">Rs. 750</p>
+                    </div>
+                    <button onclick="addToCart('cos14', 'Face Powder', 750)">Add to Cart</button>
+                </div>
+                <!-- Product Card 15 -->
+                <div class="item-card" data-id="cos15" data-name="Sunscreen" data-price="1000">
+                    <img src="https://images.unsplash.com/photo-1598662972299-5408ddb8a3dc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fFN1bnNjcmVlbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Sunscreen">
+                   
+                    <div class="item-info">
+                        <h4>Sunscreen</h4>
+                        <p class="price">Rs. 1000</p>
+                    </div>
+                    <button onclick="addToCart('cos15', 'Sunscreen', 1000)">Add to Cart</button>
+                </div>
+                <!-- Product Card 16 -->
+              <!--  <div class="item-card" data-id="cos16" data-name="Brow Pencil" data-price="250">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Brow Pencil">
+                    <div class="item-info">
+                        <h4>Brow Pencil</h4>
+                        <p class="price">Rs. 250</p>
+                    </div>
+                    <button onclick="addToCart('cos16', 'Brow Pencil', 250)">Add to Cart</button>
+                </div>
+                <!-- Product Card 17 -->
+             <!--   <div class="item-card" data-id="cos17" data-name="Toner" data-price="600">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Toner">
+                    <div class="item-info">
+                        <h4>Toner</h4>
+                        <p class="price">Rs. 600</p>
+                    </div>
+                    <button onclick="addToCart('cos17', 'Toner', 600)">Add to Cart</button>
+                </div>
+                <!-- Product Card 18 -->
+                <div class="item-card" data-id="cos18" data-name="Lip Liner" data-price="300">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgICIFAxboxcP0PNftMWfU_nOEZnNU0WwlFZSAE5BrtQ&s=10" alt="Lip Liner">
+
+                    <div class="item-info">
+                        <h4>Lip Liner</h4>
+                        <p class="price">Rs. 300</p>
+                    </div>
+                    <button onclick="addToCart('cos18', 'Lip Liner', 300)">Add to Cart</button>
+                </div>
+                <!-- Product Card 19 -->
+           <!--     <div class="item-card" data-id="cos19" data-name="Setting Spray" data-price="850">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Setting Spray">
+                    <p>سیٹنگ اسپرے میک اپ کو دیر تک برقرار رکھنے اور اسے فِکس کرنے کے لیے استعمال ہوتا ہے۔ 💧✨</p>
+                    <div class="item-info">
+                        <h4>Setting Spray</h4>
+                        <p class="price">Rs. 850</p>
+                    </div>
+                    <button onclick="addToCart('cos19', 'Setting Spray', 850)">Add to Cart</button>
+                </div>
+                <!-- Product Card 20 -->
+            <!--    <div class="item-card" data-id="cos20" data-name="Cleanser" data-price="450">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Cleanser">
+                    <div class="item-info">
+                        <h4>Cleanser</h4>
+                        <p class="price">Rs. 450</p>
+                    </div>
+                    <button onclick="addToCart('cos20', 'Cleanser', 450)">Add to Cart</button>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapals Products Section -->
+    <section id="chapals">
+        <div class="container">
+            <!-- Section Heading -->
+            <h2>Chappals  </h2>
+            <!-- Grid of Chapals Product Cards -->
+            <div class="items-grid">
+                <!-- Product Card 1 -->
+                <div class="item-card" data-id="cha1" data-name="Casual Slipper" data-price="800">
+                    <img src="https://hitz.co.in/cdn/shop/files/6797-TAN_129a9574-65ad-420c-9d82-352ac43a621b.jpg?v=1755618683" alt="Casual Slipper">
+                    <div class="item-info">
+                   <!--     <h4>Casual Slipper</h4>-->
+                        <p class="price">Rs. 800</p>
+                    </div>
+                    <button onclick="addToCart('cha1', 'Casual Slipper', 800)">Add to Cart</button>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="item-card" data-id="cha2" data-name="Sports Chapal" data-price="1200">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeVtCM3xyfpcJ-vDyv9EZ1-I5yqXdFJnpM2AvVnjzk8A&s=10" alt="Sports Chapal">
+               <!--     <div class="item-info">
+                        <h4>Sports Chapal</h4>
+                        <p class="price">Rs. 1200</p>
+                    </div>-->
+                    <button onclick="addToCart('cha2', 'Sports Chapal', 1200)">Add to Cart</button>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="item-card" data-id="cha3" data-name="Formal Chapal" data-price="1500">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOZ5ZEuoo906Y304l6X3PK-rM-m-dTizNZtVVxS2TnYw&s=10" alt="Formal Chapal">
+                    <div class="item-info">
+                        <!--<h4>Formal Chapal</h4>-->
+                        <p class="price">Rs. 1500</p>
+                    </div>
+                    <button onclick="addToCart('cha3', 'Formal Chapal', 1500)">Add to Cart</button>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="item-card" data-id="cha4" data-name="Beach Slipper" data-price="500">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2TZGvkILkhwULfr1TiWMHO4DQYOug0_IimTWDXfvaw&s=10" alt="Beach Slipper">
+                    <div class="item-info">
+                      <!--  <h4>Beach Slipper</h4>-->
+                        <p class="price">Rs. 500</p>
+                    </div>
+                    <button onclick="addToCart('cha4', 'Beach Slipper', 500)">Add to Cart</button>
+                </div>
+                <!-- Product Card 5 -->
+             <!--   <div class="item-card" data-id="cha5" data-name="Winter Chapal" data-price="1000">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Winter Chapal">
+                    <div class="item-info">
+                        <h4>Winter Chapal</h4>
+                        <p class="price">Rs. 1000</p>
+                    </div>
+                    <button onclick="addToCart('cha5', 'Winter Chapal', 1000)">Add to Cart</button>
+                </div>
+                <!-- Product Card 6 -->
+                <div class="item-card" data-id="cha6" data-name="Kids Slipper" data-price="400">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7l9tMli4yA_0aIv40OizPvvs3Wtqms_AMxRtPfnenKg&s=10" alt="Kids Slipper">
+                    <div class="item-info">
+                     <!--   <h4>Kids Slipper</h4>-->
+                        <p class="price">Rs. 400</p>
+                    </div>
+                    <button onclick="addToCart('cha6', 'Kids Slipper', 400)">Add to Cart</button>
+                </div>
+                <!-- Product Card 7 -->
+                <div class="item-card" data-id="cha7" data-name="Ladies Chapal" data-price="900">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGs6mbfedvHkJr7rvoj3M0hF7WMEQAeolVIcRjJkluMQ&s=10" alt="Ladies Chapal">
+                    <div class="item-info">
+                    <!--    <h4>Ladies Chapal</h4>-->
+                        <p class="price">Rs. 900</p>
+                    </div>
+                    <button onclick="addToCart('cha7', 'Ladies Chapal', 900)">Add to Cart</button>
+                </div>
+                <!-- Product Card 8 -->
+                <div class="item-card" data-id="cha8" data-name="Men's Slipper" data-price="1100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0U-C6JukbDrrp4UKzfy1zj6TwK0uSEcZOyUFt5K-x2Q&s=10" alt="Men's Slipper">
+                    <div class="item-info">
+                    <!--    <h4>Men's Slipper</h4>-->
+                        <p class="price">Rs. 1100</p>
+                    </div>
+                    <button onclick="addToCart('cha8', 'Men's Slipper', 1100)">Add to Cart</button>
+                </div>
+                <!-- Product Card 9 -->
+          <!--      <div class="item-card" data-id="cha9" data-name="Flip Flop" data-price="300">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Flip Flop">
+                    <div class="item-info">
+                        <h4>Flip Flop</h4>
+                        <p class="price">Rs. 300</p>
+                    </div>
+                    <button onclick="addToCart('cha9', 'Flip Flop', 300)">Add to Cart</button>
+                </div>
+                <!-- Product Card 10 -->
+                <div class="item-card" data-id="cha10" data-name="Sandal" data-price="700">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFpPkPk42ZbHclxCqhxAAS9UZvZVV73s8Gi_HM0FwWYA&s=10" alt="Sandal">
+                    <div class="item-info">
+                     <!--   <h4>Sandal</h4>-->
+                        <p class="price">Rs. 700</p>
+                    </div>
+                    <button onclick="addToCart('cha10', 'Sandal', 700)">Add to Cart</button>
+                </div>
+                <!-- Product Card 11 -->
+                <div class="item-card" data-id="cha11" data-name="Orthopedic Chapal" data-price="1300">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2KRaQqLhdT0g_KvjaenU_yJ3kbBFhJd117ijWx54JVA&s=10" alt="Orthopedic Chapal">
+                    <div class="item-info">
+                  <!--      <h4>Orthopedic Chapal</h4>-->
+                        <p class="price">Rs. 1300</p>
+                    </div>
+                    <button onclick="addToCart('cha11', 'Orthopedic Chapal', 1300)">Add to Cart</button>
+                </div>
+                <!-- Product Card 12 -->
+                <div class="item-card" data-id="cha12" data-name="Party Slipper" data-price="600">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ASsYylm39tstcP3ulknPxcuQBf1HH1cVoY9bOSrVyw&s=10" alt="Party Slipper">
+                    <div class="item-info">
+                      <!--  <h4>Party Slipper</h4>-->
+                        <p class="price">Rs. 600</p>
+                    </div>
+                    <button onclick="addToCart('cha12', 'Party Slipper', 600)">Add to Cart</button>
+                </div>
+                <!-- Product Card 13 -->
+                <div class="item-card" data-id="cha13" data-name="Running Chapal" data-price="1400">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Ucw12eIk9Jm4J__Q-3n-xfKlot3nhbGZg6vhUwyStw&s=10" alt="Running Chapal">
+                    <div class="item-info">
+                   <!--     <h4>Running Chapal</h4>-->
+                        <p class="price">Rs. 1400</p>
+                    </div>
+                    <button onclick="addToCart('cha13', 'Running Chapal', 1400)">Add to Cart</button>
+                </div>
+                <!-- Product Card 14 -->
+                <div class="item-card" data-id="cha14" data-name="Casual Sandal" data-price="550">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV7gVjz5u76XLw5C_AoCW8Fu_dR9r0b9vw7rkGDN5DSw&s=10" alt="Casual Sandal">
+                    <div class="item-info">
+                   <!--     <h4>Casual Sandal</h4>-->
+                        <p class="price">Rs. 550</p>
+                    </div>
+                    <button onclick="addToCart('cha14', 'Casual Sandal', 550)">Add to Cart</button>
+                </div>
+          <      <!-- Product Card 15 -->
+              <!--  <div class="item-card" data-id="cha15" data-name="Travel Slipper" data-price="850">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Travel Slipper">
+                    <div class="item-info">
+                        <h4>Travel Slipper</h4>
+                        <p class="price">Rs. 850</p>
+                    </div>
+                    <button onclick="addToCart('cha15', 'Travel Slipper', 850)">Add to Cart</button>
+                </div>
+                <!-- Product Card 16 -->
+                <div class="item-card" data-id="cha16" data-name="Home Chapal" data-price="350">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCXzIIi9Tf7RCz-J6WQzJBchD90N6B6GqlGnEojtCf0Q&s=10" alt="Home Chapal">
+                    <div class="item-info">
+                  <!--      <h4>Home Chapal</h4>-->
+                        <p class="price">Rs. 350</p>
+                    </div>
+                    <button onclick="addToCart('cha16', 'Home Chapal', 350)">Add to Cart</button>
+                </div>
+                <!-- Product Card 17 -->
+          <!--      <div class="item-card" data-id="cha17" data-name="Designer Slipper" data-price="2000">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Designer Slipper">
+                    <div class="item-info">
+                        <h4>Designer Slipper</h4>
+                        <p class="price">Rs. 2000</p>
+                    </div>
+                    <button onclick="addToCart('cha17', 'Designer Slipper', 2000)">Add to Cart</button>
+                </div>
+                <!-- Product Card 18 -->
+           <!--     <div class="item-card" data-id="cha18" data-name="Summer Chapal" data-price="450">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Summer Chapal">
+                    <div class="item-info">
+                        <h4>Summer Chapal</h4>
+                        <p class="price">Rs. 450</p>
+                    </div>
+                    <button onclick="addToCart('cha18', 'Summer Chapal', 450)">Add to Cart</button>
+                </div>
+                <!-- Product Card 19 -->
+             <!--   <div class="item-card" data-id="cha19" data-name="Waterproof Slipper" data-price="950">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Waterproof Slipper">
+                    <div class="item-info">
+                        <h4>Waterproof Slipper</h4>
+                        <p class="price">Rs. 950</p>
+                    </div>
+                    <button onclick="addToCart('cha19', 'Waterproof Slipper', 950)">Add to Cart</button>
+                </div>
+                <!-- Product Card 20 -->
+           <!--     <div class="item-card" data-id="cha20" data-name="Comfort Chapal" data-price="650">
+                    <img src="https://images.unsplash.com/photo-1761585580432-77b4d4f5b299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1200" alt="Comfort Chapal">
+                    <div class="item-info">
+                        <h4>Comfort Chapal</h4>
+                        <p class="price">Rs. 650</p>
+                    </div>
+                    <button onclick="addToCart('cha20', 'Comfort Chapal', 650)">Add to Cart</button>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Reviews Section -->
+<!--    <section id="reviews" class="reviews">
+        <div class="container">
+            <!-- Section Heading -->
+     <!--       <h2>Client Reviews</h2>
+            <!-- Grid of Review Cards -->
+         <!--   <div class="review-grid">
+                <!-- Review 1 -->
+           <!--    <div class="review">
+                    <p>"Amazing quality cosmetics! Love the lipstick shade."</p>
+                    <cite>- mano K.</cite>
+                </div>
+                <!-- Review 2 -->
+           <!--     <div class="review">
+                    <p>"Comfortable chapals, perfect for daily wear."</p>
+                    <cite>- Ahmed S.</cite>
+                </div>
+                <!-- Review 3 -->
+           <!--     <div class="review">
+                    <p>"Fast delivery and great prices. Highly recommend!"</p>
+                    <cite>- Fatima R.</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact">
+        <div class="container">
+            <!-- Section Heading -->
+            <h2>Contact Us</h2>
+            <!-- Contact Form -->
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <!-- Hidden fields for form submission -->
+                <input type="hidden" name="access_key" value="b66a5f2f-7857-4205-9611-ae63bf2804e4">
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                <input type="checkbox" name="botcheck" style="display: none;">
+                <!-- Name Input -->
+                <input type="text" name="name" placeholder="Your Name" required>
+                <!-- Email Input -->
+                <input type="email" name="email" placeholder="Your Email" required>
+                <!-- Phone Input -->
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                <!-- Message Textarea -->
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <!-- Submit Button -->
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/share/1BdxAMaikB/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <!-- Copyright and Privacy Link -->
+        <p class="footer-copyright">&copy; 2025 Beauty Store. All rights reserved. <!--| <a href="#privacy" style="color: #ff69b4;">Privacy Policy</a>--></p>
+        <!-- Creator Credit -->
+        <p class="footer-studio">Created by <a href="https://skwebstudio.netlify.app/" target="_blank">SK Web Studio</a></p>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <!-- Close Button -->
+            <span class="close" onclick="closeCart()">&times;</span>
+            <!-- Modal Heading -->
+            <h2>Your Cart</h2>
+            <!-- Cart Items Container -->
+            <div id="cartItems"></div>
+            <!-- Total Price -->
+            <p id="total"></p>
+            <!-- Modal Action Buttons -->
+            <div class="modal-buttons">
+                <button class="btn-close" onclick="closeCart()">Close</button>
+                <button class="btn-checkout" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript -->
+    <script src="main.js"></script>
+</body>
